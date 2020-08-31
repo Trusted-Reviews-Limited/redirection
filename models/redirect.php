@@ -299,7 +299,7 @@ class Red_Item {
 			$wpdb->update( $wpdb->prefix.'redirection_items', array( 'position' => $pos + $start ), array( 'id' => $id ) );
 		}
 
-		Red_Module::flush( $this->group_id );
+		Red_Module::flush( self::get_group_id() );
 	}
 
 	function matches( $url ) {
