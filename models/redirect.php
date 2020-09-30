@@ -292,14 +292,14 @@ class Red_Item {
 		}
 	}
 
-	static function save_order( $items, $start ) {
+	public function save_order( $items, $start ) {
 		global $wpdb;
 
 		foreach ( $items as $pos => $id ) {
 			$wpdb->update( $wpdb->prefix.'redirection_items', array( 'position' => $pos + $start ), array( 'id' => $id ) );
 		}
 
-		Red_Module::flush( self::get_group_id() );
+		Red_Module::flush( $this->get_group_id() );
 	}
 
 	function matches( $url ) {
